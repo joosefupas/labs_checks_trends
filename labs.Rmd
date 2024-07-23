@@ -58,7 +58,57 @@ print(p)
 ```
 
 
+# CV Risk Scores
 
+```{r}
+# Compute BMI
+weight <- 83  # kg
+height <- 1.83  # meters
+bmi <- weight / (height^2)
+
+# Create a sample dataframe for risk calculation
+sample_data <- data.frame(
+  age = rep(37, nrow(data)),
+  gender = rep("male", nrow(data)),
+  race = rep("white", nrow(data)),  # Assuming race as white
+  sbp = rep(120, nrow(data)),  # Assuming normal systolic blood pressure
+  bmi = rep(bmi, nrow(data)),
+  hdl = data$Value[data$Item == "HDL"],
+  totchol = data$Value[data$Item == "Total Cholesterol"],
+  bp_med = rep(0, nrow(data)),  # 0 for no medication
+  smoker = rep(0, nrow(data)),  # 0 for non-smoker
+  diabetes = rep(0, nrow(data)),  # 0 for no diabetes
+  lipid_med = rep(0, nrow(data)),  # 0 for no lipid medication
+  fh_heartattack = rep(1, nrow(data)),  # 0 for no family history of heart attack
+  cac = rep(0, nrow(data))  # Assuming CAC (Coronary Artery Calcium) score as 0
+)
+
+# Ensure numeric conversion for required columns
+sample_data <- sample_data %>%
+  mutate(across(c(bp_med, smoker, diabetes, lipid_med, fh_heartattack, cac), as.numeric))
+
+# Calculate the cardiovascular risk scores
+risk_scores <- compute_CVrisk(
+  df = sample_data,
+  age = "age",
+  gender = "gender",
+  race = "race",
+  sbp = "sbp",
+  bmi = "bmi",
+  hdl = "hdl",
+  totchol = "totchol",
+  bp_med = "bp_med",
+  smoker = "smoker",
+  diabetes = "diabetes",
+  lipid_med = "lipid_med",
+  fh_heartattack = "fh_heartattack",
+  cac = "cac"
+)
+
+# Display the risk scores
+print(risk_scores)
+
+```
 
 
 
