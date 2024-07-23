@@ -1,0 +1,64 @@
+---
+title: "Lab Analysis Trends and Risk Calculation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(tidyverse)
+library(CVrisk)
+
+# read data from github
+url <- "https://raw.githubusercontent.com/joosefupas/labs_checks_trends/main/data/trends.tsv"
+data <- read.delim(url, sep = "\t")
+
+data$Date <- as.Date(data$Date, "%d/%m/%Y")
+```
+
+
+# Trend Plot of Lab Analysis
+
+```{r}
+p <- ggplot(data, aes(x = Date, y = Value, color = Item)) +
+  geom_line(aes(linetype = Item), size = 1.2) +
+  geom_point(aes(shape = ifelse(Value > Threshold, "above", "below")), size = 3) +
+  scale_shape_manual(values = c("above" = 24, "below" = 21)) +
+  labs(title = "Trend plot lab analysis",
+       subtitle = "Pt: GP, D.O.B. 04-Jun-1987, Sex: M",
+       x = "Date",
+       y = "Value (mg/dL)",
+       color = "Item",
+       shape = "Threshold") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line.x = element_line(size = .5),
+        axis.line.y = element_line(size = .5),
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),
+        axis.title.y = element_text(size = 14),
+        plot.title = element_text(size = 16, hjust = 0.5)) +
+  geom_hline(aes(yintercept = Threshold, color = Item), linetype = "dotted") +
+  scale_y_continuous(expand = c(0.01, .01), limits = c(0, 250)) +
+  scale_linetype_manual(values = c("Tryglicerids" = "solid",
+                                   "Total Cholesterol" = "dashed",
+                                   "HDL" = "dotted",
+                                   "LDL" = "dotdash")) +
+  scale_x_date(date_labels = "%d-%b-%Y",
+               date_breaks = "3 months") +
+  geom_text(aes(label = Value), hjust = .5, vjust = -1, size = 4) +
+  theme(legend.position = "bottom") +
+  theme(legend.title = element_blank()) +
+  theme(legend.text = element_text(size = 12))
+
+print(p)
+
+```
+
+
+
+
+
+
