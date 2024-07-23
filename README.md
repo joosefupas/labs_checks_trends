@@ -40,7 +40,7 @@ The plot includes several customization features:
 - Customizing axis labels, titles, and legends for better readability.
 
 
-@ Explanation of Risk Scores
+# Explanation of Risk Scores
 ## ASCVD 10-Year Risk Score (ACC/AHA)
 ascvd_10y_accaha: This score calculates the 10-year risk of developing atherosclerotic cardiovascular disease (ASCVD) using guidelines from the American College of Cardiology (ACC) and the American Heart Association (AHA). It considers factors such as age, gender, race, cholesterol levels, blood pressure, diabetes status, smoking status, and medication use. The patient's score ranges from 1.00% to 1.02%, indicating a very low risk of cardiovascular events over the next 10 years.
 ## Framingham Risk Scores
