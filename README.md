@@ -38,3 +38,14 @@ The plot includes several customization features:
 - Highlighting points above the threshold.
 - Adding horizontal lines at threshold levels.
 - Customizing axis labels, titles, and legends for better readability.
+
+
+@ Explanation of Risk Scores
+## ASCVD 10-Year Risk Score (ACC/AHA)
+ascvd_10y_accaha: This score calculates the 10-year risk of developing atherosclerotic cardiovascular disease (ASCVD) using guidelines from the American College of Cardiology (ACC) and the American Heart Association (AHA). It considers factors such as age, gender, race, cholesterol levels, blood pressure, diabetes status, smoking status, and medication use. The patient's score ranges from 1.00% to 1.02%, indicating a very low risk of cardiovascular events over the next 10 years.
+## Framingham Risk Scores
+ascvd_10y_frs: This is the Framingham Risk Score, which estimates the 10-year risk of ASCVD. It uses a similar set of risk factors as the ACC/AHA score but applies a different algorithm. The patient's score ranges from 3.06% to 3.77%, still indicating a low risk.
+ascvd_10y_frs_simple: This is a simplified version of the Framingham Risk Score. The patient's score is consistently 3.39% across all records, indicating a low risk.
+## MESA Risk Scores
+chd_10y_mesa: This score estimates the 10-year risk of coronary heart disease (CHD) based on the Multi-Ethnic Study of Atherosclerosis (MESA) cohort. It includes similar risk factors but is tailored for a multi-ethnic population. The patient's score ranges from 1.69% to 1.94%, suggesting a very low risk of CHD.
+chd_10y_mesa_cac: This score incorporates the Coronary Artery Calcium (CAC) score for a more accurate estimation. The patient's score ranges from 1.41% to 1.58%, indicating a very low risk of CHD, reflecting the absence of calcified plaque in the coronary arteries.
