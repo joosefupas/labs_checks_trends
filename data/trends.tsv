@@ -35,6 +35,8 @@ Date	Item	Value	Unit	Threshold
 27/04/2024	Total Cholesterol	202	mg/dL	200
 27/04/2024	HDL	39.9	mg/dL	55
 27/04/2024	LDL	125	mg/dL	129
-04/09/2024  Tryglicerids  119.0  mg/dL  165
-04/09/2024  Total Cholesterol  184  mg/dL  200
-04/09/2024  HDL 35.9 mg/dL 55
+Date         Item                   Value     Unit       Threshold
+04/09/2024   Tryglicerids            119.0     mg/dL      165
+04/09/2024   Total Cholesterol       184       mg/dL      200
+04/09/2024   HDL                     35.9      mg/dL      55
+
